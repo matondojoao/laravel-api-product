@@ -30,8 +30,9 @@ Route::group(['prefix'=>'products'],function(){
 
   Route::get('/',[App\Http\Controllers\Api\ProductController::class,'index']);
   Route::get('/{id}',[App\Http\Controllers\Api\ProductController::class,'show']);
+  Route::update('/{id}',[App\Http\Controllers\Api\ProductController::class,'update']);
   Route::post('/add',[App\Http\Controllers\Api\ProductController::class,'store']);
-
+  Route::delete('/{id}',[App\Http\Controllers\Api\ProductController::class,'destroy']);
 });
 
 
