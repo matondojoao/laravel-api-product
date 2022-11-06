@@ -26,6 +26,8 @@ Route::get('/test', function() {
     
     return $response;
 });
+Route::group(['prefix'=>'products'],function(){
+  Route::get('/',[App\Http\Controllers\Api\ProductController::class,'index']);
+});
 
-Route::get('/products',[App\Http\Controllers\Api\ProductController::class,'index']);
 
