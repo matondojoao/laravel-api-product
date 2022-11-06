@@ -36,7 +36,7 @@ class ProductController extends Controller
         $product->slug=$request->slug;
         $product->save();
 
-        return response()->json(['msg'=>'Produto salvo com sucesso']);
+        return response()->json(['data'=>['msg'=>'Produto salvo com sucesso']]);
     }
 
     /**
@@ -51,7 +51,7 @@ class ProductController extends Controller
             if(isset($product)){
               return response()->json($product);
             }
-        return response()->json(['msg'=>'Produto não encontrado']);
+        return response()->json(['data'=>['msg'=>'Produto não encontrado']]);
     }
     /**
      * Update the specified resource in storage.
@@ -73,9 +73,9 @@ class ProductController extends Controller
             
             $product->save();
             
-            return response()->json(['msg'=>'Produto atualizado com sucesso']);
+            return response()->json(['data'=>['msg'=>'Produto atualizado com sucesso']]);
         }
-    return response()->json(['msg'=>'Produto não encontrado']);
+        return response()->json(['data'=>['msg'=>'Produto não encontrado']]);
     }
 
     /**
@@ -89,8 +89,8 @@ class ProductController extends Controller
          $product=product::find($id);
             if(isset($product)){
               $product->delete();
-              return response()->json(['msg'=>'Produto excluído com sucesso']);
+              return response()->json(['data'=>['msg'=>'Produto excluído com sucesso']]);
             }
-        return response()->json(['msg'=>'Produto não encontrado']);
+        return response()->json(['data'=>['msg'=>'Produto não encontrado']]);
     }
 }
