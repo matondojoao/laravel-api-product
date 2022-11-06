@@ -27,7 +27,5 @@ Route::get('/test', function() {
     return $response;
 });
 
-Route::get('/products',function(){
-  return \App\Models\product::all();
-});
+Route::get('/products',[App\Http\Controllers\Api\ProductController::class,'index']);
 
