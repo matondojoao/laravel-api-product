@@ -23,6 +23,7 @@ Route::group(['prefix'=>'products'],function(){
   Route::post('/',[ProductController::class,'store']);
   Route::get('/{id}',[ProductController::class,'show']);
   Route::delete('/{id}',[ProductController::class,'destroy']);
+  Route::put('/{id}',[ProductController::class,'update']);
 });
 
 
