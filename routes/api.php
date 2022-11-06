@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use ProductController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,21 +18,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::get('/test', function() {
-    $response=new \Illuminate\Http\Response(json_encode(['msg'=>'Minha primeira resposta de API']));
-
-    $response->header('Content-Type','application/json');
-    
-    return $response;
-});
 Route::group(['prefix'=>'products'],function(){
-
-  Route::get('/',[App\Http\Controllers\Api\ProductController::class,'index']);
-  Route::get('/{id}',[App\Http\Controllers\Api\ProductController::class,'show']);
-  Route::update('/{id}',[App\Http\Controllers\Api\ProductController::class,'update']);
-  Route::post('/add',[App\Http\Controllers\Api\ProductController::class,'store']);
-  Route::delete('/{id}',[App\Http\Controllers\Api\ProductController::class,'destroy']);
+  Route::get('/',[ProductController::class,'index']);
+  Route::post('/',[ProductController::class,'store']);
+  Route::get('/{id}',[ProductController::class,'show']);
+  Route::delete('/{id}',[ProductController::class,'destroy']);
 });
+
 
 
