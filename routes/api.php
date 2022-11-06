@@ -27,3 +27,7 @@ Route::get('/test', function() {
     return $response;
 });
 
+Route::get('/products',function(){
+  return \App\Models\product::all();
+});
+
