@@ -29,6 +29,7 @@ Route::get('/test', function() {
 Route::group(['prefix'=>'products'],function(){
 
   Route::get('/',[App\Http\Controllers\Api\ProductController::class,'index']);
+  Route::post('/add',[App\Http\Controllers\Api\ProductController::class,'store']);
   
 });
 
