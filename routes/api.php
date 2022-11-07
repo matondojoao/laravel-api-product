@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,6 +26,8 @@ Route::group(['prefix'=>'products'],function(){
   Route::delete('/{id}',[ProductController::class,'destroy']);
   Route::put('/{id}',[ProductController::class,'update']);
 });
+
+Route::resource('/user',UserController::class);
 
 
 
