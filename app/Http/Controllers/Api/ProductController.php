@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\product;
+use App\Http\Resources\ProductResource;
 
 class ProductController extends Controller
 {
@@ -49,9 +50,10 @@ class ProductController extends Controller
     {
         $product=product::find($id);
             if(isset($product)){
-              return response()->json($product);
+              //return response()->json($product);
+              return new ProductResource($product);
             }
-        return response()->json(['data'=>['msg'=>'Produto não encontrado']]);
+        //return response()->json(['data'=>['msg'=>'Produto não encontrado']]);
     }
     /**
      * Update the specified resource in storage.
