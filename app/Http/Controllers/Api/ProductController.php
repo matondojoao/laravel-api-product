@@ -15,13 +15,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products=product::paginate(3);
+      $products = new product;
 
-       //return response()->json($products);
-
-       return new ProductCollection($products);
+      if($request->has('fields')){
+        $fields=$request->get('fields');
+        $products=$products->selectRaw($fields);
+      }
+       return new ProductCollection($products->paginate(3));
     }
 
     /**

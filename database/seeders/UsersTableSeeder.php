@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Faker\Factory;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+     
     }
 }
