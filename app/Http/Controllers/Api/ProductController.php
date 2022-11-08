@@ -23,7 +23,7 @@ class ProductController extends Controller
         $fields=$request->get('fields');
         $products=$products->selectRaw($fields);
       }
-       return new ProductCollection($products->paginate(3));
+      return new ProductCollection($products->paginate(3));
     }
 
     /**
