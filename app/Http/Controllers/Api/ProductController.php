@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\product;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\ProductCollection;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,9 @@ class ProductController extends Controller
     {
         $products=product::paginate(3);
 
-       return response()->json($products);
+       //return response()->json($products);
+
+       return new ProductCollection($products);
     }
 
     /**
@@ -51,7 +54,7 @@ class ProductController extends Controller
         $product=product::find($id);
             if(isset($product)){
               //return response()->json($product);
-              return new ProductResource($product);
+             return new ProductResource($product);
             }
         //return response()->json(['data'=>['msg'=>'Produto não encontrado']]);
     }
