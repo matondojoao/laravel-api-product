@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'products'],function(){
   Route::get('/',[ProductController::class,'index']);
-  Route::post('/',[ProductController::class,'store'])->middleware('auth.basic');
+  Route::post('/',[ProductController::class,'store']);
   Route::get('/{id}',[ProductController::class,'show']);
   Route::delete('/{id}',[ProductController::class,'destroy']);
   Route::put('/{id}',[ProductController::class,'update']);
