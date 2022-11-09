@@ -27,7 +27,5 @@ Route::group(['prefix'=>'products'],function(){
   Route::put('/{id}',[ProductController::class,'update']);
 });
 
-Route::resource('/user',UserController::class);
-
 
 
